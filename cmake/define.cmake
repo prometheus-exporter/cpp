@@ -1,0 +1,19 @@
+option(ENABLE_TEST "-DENABLE_TEST=on" OFF)
+
+set(CMAKE_CXX_STANDARD 23)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS ON)
+
+set(CMAKE_CXX_FLAGS "-g -Wall")
+set(CMAKE_CXX_FLAGS_COVERAGE " --coverage")
+
+if("${CMAKE_INSTALL_PREFIX}" MATCHES "/usr/local")
+	set(CMAKE_INSTALL_PREFIX ${CMAKE_BINARY_DIR}/install)
+endif()
+
+set(POSTFIX_OBJECT_NAME "_o")
+set(POSTFIX_TEST_NAME "_test")
+
+if(ENABLE_TEST)
+	enable_testing()
+endif(ENABLE_TEST)
